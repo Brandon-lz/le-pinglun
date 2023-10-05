@@ -1,5 +1,5 @@
 FROM python:3.9
-ARG PORT
+ARG PORT=8080
 
 WORKDIR /code/app
 

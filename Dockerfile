@@ -1,5 +1,5 @@
 FROM python:3.9
-ARG PORT
+ARG RAILWAY_PORT
 
 WORKDIR /code/app
 
@@ -9,9 +9,9 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 COPY . /code/app
 
-EXPOSE $PORT
+EXPOSE $RAILWAY_PORT
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", $PORT]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", $RAILWAY_PORT]
 
 
 # If running behind a proxy like Nginx or Traefik add --proxy-headers

@@ -1,5 +1,4 @@
 FROM python:3.9
-ARG PORT="8080"
 
 WORKDIR /code/app
 
@@ -9,7 +8,7 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 COPY . /code/app
 
-# EXPOSE ${PORT}
+EXPOSE 8080
 
 
 CMD ["python","-m","uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]

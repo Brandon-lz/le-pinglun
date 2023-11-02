@@ -34,8 +34,14 @@ async def delete_comment(remark_name:str):
     await crud.delete_comment(remark_name)
     return 'ok'
 
+@app.delete("/comment-by-id/{id}",description="删除评论")
+async def delete_comment(id:str):
+    await crud.delete_comment_by_id(id)
+    return 'ok'
+
+
 
 
 if __name__ == '__main__':
     import uvicorn
-    uvicorn.run("main:app",port=8868,reload=False)
+    uvicorn.run("main:app",host="0.0.0.0",port=8868,reload=False)

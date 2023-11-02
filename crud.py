@@ -39,3 +39,13 @@ async def delete_comment(remark_name:str):
             session.delete(cm)
         session.commit()
         
+
+
+async def delete_comment_by_id(id:int):
+    with Session(get_engine()) as session:
+        statement = select(Comment).where(Comment.id == id)
+        results = session.exec(statement)
+        for cm in results:
+            session.delete(cm)
+        session.commit()
+        

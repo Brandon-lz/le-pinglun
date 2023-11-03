@@ -1,0 +1,17 @@
+version: '0.1'
+
+networks:
+  pinglun-net:
+    name: mynetwork
+    external: true
+  
+
+services:
+  app:
+    build: .
+    container_name: pinglun-backend
+    image: pinglun-backend-image
+    ports:
+      - "8868:8868"
+    networks:
+      - pinglun-net
